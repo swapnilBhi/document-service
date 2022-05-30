@@ -23,7 +23,7 @@ namespace Kmd.Logic.DocumentService.Client
         public DocumentsOptions(string subscriptionId, Uri serviceUri = null)
         {
             this.SubscriptionId = subscriptionId;
-            this.ServiceUri = serviceUri ?? new Uri("https://localhost:44318/");
+            this.ServiceUri = serviceUri ?? new Uri("https://gateway.kmdlogic.io/citizen-documents/v1");
         }
     }
 }

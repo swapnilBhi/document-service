@@ -11,7 +11,7 @@ namespace Kmd.Logic.DocumentService.Client.Sample
 
         public string ConfigurationId { get; set; }
 
-        public Uri ServiceUri { get; set; } = new Uri("https://localhost:44318/");
+        public Uri ServiceUri { get; set; } = new Uri("https://gateway.kmdlogic.io/citizen-documents/v1");
 
         public string Cpr { get; set; }
 
