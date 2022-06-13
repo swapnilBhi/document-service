@@ -77,6 +77,13 @@ namespace Kmd.Logic.DocumentService.Client
                 case System.Net.HttpStatusCode.Unauthorized:
                     throw new DocumentsException("Unauthorized", response.Body as string);
 
+                case System.Net.HttpStatusCode.BadRequest:
+                    {
+                        var messages = response.Body as IDictionary<string, IList<string>>;
+                        var errorMessage = DocumentsException.BadRequestMessage(messages);
+                        throw new DocumentsException("BadRequest", errorMessage);
+                    }
+
                 default:
                     throw new DocumentsException(
                         "An unexpected error occurred while processing the request",
@@ -98,6 +105,13 @@ namespace Kmd.Logic.DocumentService.Client
 
                 case System.Net.HttpStatusCode.Unauthorized:
                     throw new DocumentsException("Unauthorized", response.Body as string);
+
+                case System.Net.HttpStatusCode.BadRequest:
+                    {
+                        var messages = response.Body as IDictionary<string, IList<string>>;
+                        var errorMessage = DocumentsException.BadRequestMessage(messages);
+                        throw new DocumentsException("BadRequest", errorMessage);
+                    }
 
                 default:
                     throw new DocumentsException(
