@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace Kmd.Logic.DocumentService.Client
 {
@@ -31,6 +33,25 @@ namespace Kmd.Logic.DocumentService.Client
         public DocumentsException(string message)
             : base(message)
         {
+        }
+
+        public static string BadRequestMessage(IDictionary<string, IList<string>> badRequestMessages)
+        {
+            if (badRequestMessages == null)
+            {
+                return string.Empty;
+            }
+
+            StringBuilder messages = new StringBuilder();
+            foreach (KeyValuePair<string, IList<string>> message in badRequestMessages)
+            {
+                messages.Append(message.Key).Append(" : ");
+                var value = message.Value as List<string>;
+                value.ForEach(a => messages.Append(a).AppendLine());
+                messages.AppendLine();
+            }
+
+            return messages.ToString();
         }
     }
 }
