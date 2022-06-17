@@ -315,7 +315,7 @@ namespace Kmd.Logic.DocumentService.Client
             }
         }
 
-        public async Task<IList<CitizenDocumentConfigResponse>> LoadProviderConfiguration()
+        public async Task<IList<DocumentConfigResponse>> LoadProviderConfiguration()
         {
             var client = this.CreateClient();
 
@@ -325,7 +325,7 @@ namespace Kmd.Logic.DocumentService.Client
             switch (response.Response.StatusCode)
             {
                 case System.Net.HttpStatusCode.OK:
-                    return (IList<CitizenDocumentConfigResponse>)response.Body;
+                    return response.Body;
 
                 case System.Net.HttpStatusCode.Unauthorized:
                     throw new DocumentsException(
