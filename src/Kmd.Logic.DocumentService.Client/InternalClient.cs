@@ -880,6 +880,10 @@ namespace Kmd.Logic.DocumentService.Client
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "request");
             }
+            if (request != null)
+            {
+                request.Validate();
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;

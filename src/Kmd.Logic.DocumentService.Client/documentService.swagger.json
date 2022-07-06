@@ -43,7 +43,9 @@
             "name": "retentionPeriodInDays",
             "in": "formData",
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "maximum": 999,
+            "minimum": 0
           },
           {
             "name": "documentType",
@@ -63,7 +65,8 @@
           {
             "name": "documentName",
             "in": "formData",
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_']+$"
           }
         ],
         "responses": {
@@ -435,7 +438,8 @@
           {
             "name": "documentName",
             "in": "formData",
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_']+$"
           },
           {
             "name": "sender",
@@ -1071,6 +1075,7 @@
           "type": "string"
         },
         "documentName": {
+          "pattern": "^[a-zA-Z0-9-_']+$",
           "type": "string"
         }
       }
@@ -1188,7 +1193,7 @@
           "type": "string"
         },
         "documentName": {
-          "pattern": "^[a-zA-Z0-9]+$",
+          "pattern": "^[a-zA-Z0-9-_']+$",
           "type": "string"
         },
         "sender": {
