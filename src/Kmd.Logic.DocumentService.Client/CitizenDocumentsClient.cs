@@ -138,7 +138,7 @@ namespace Kmd.Logic.DocumentService.Client
                 throw new UnauthorizedAccessException("You don't have permission to upload");
             }
 
-            var sasTokenUri = new Uri(responseSasUri.Body);
+            var sasTokenUri = new Uri(responseSasUri.Body.ToString());
 
             var containerAddress =
                 new Uri($"{sasTokenUri.Scheme}://{sasTokenUri.Host}/{sasTokenUri.AbsolutePath.Split('/')[1]}");
@@ -262,7 +262,7 @@ namespace Kmd.Logic.DocumentService.Client
             switch (response.Response.StatusCode)
             {
                 case System.Net.HttpStatusCode.OK:
-                    return response.Body;
+                    return (SendCitizenDocumentResponse)response.Body;
 
                 case System.Net.HttpStatusCode.NotFound:
                     throw new DocumentsException(
@@ -325,7 +325,7 @@ namespace Kmd.Logic.DocumentService.Client
             switch (response.Response.StatusCode)
             {
                 case System.Net.HttpStatusCode.OK:
-                    return response.Body;
+                    return (List<DocumentConfigResponse>)response.Body;
 
                 case System.Net.HttpStatusCode.Unauthorized:
                     throw new DocumentsException(

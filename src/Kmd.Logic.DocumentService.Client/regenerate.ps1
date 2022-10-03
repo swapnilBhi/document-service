@@ -1,4 +1,4 @@
-﻿autorest --input-file=citizenDocuments.swagger.json --output-folder=. --namespace=Kmd.Logic.DocumentService.Client --csharp --override-client-name=InternalClient --add-credentials --legacy
+﻿autorest --input-file=documentService.swagger.json --output-folder=. --namespace=Kmd.Logic.DocumentService.Client --csharp --override-client-name=InternalClient --add-credentials --legacy
 
 (Get-Content "InternalClient.cs") |
 	Foreach-Object {$_ -replace 'public partial class InternalClient', 'internal partial class InternalClient'} | 
