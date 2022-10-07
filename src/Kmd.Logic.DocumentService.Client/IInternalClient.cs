@@ -81,7 +81,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SendCitizenDocumentResponse>> SendDocumentWithHttpMessagesAsync(System.Guid subscriptionId, SendCitizenDocumentRequest request, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> SendDocumentWithHttpMessagesAsync(System.Guid subscriptionId, SendCitizenDocumentRequest request, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets link to storage with access to upload document.
@@ -96,7 +96,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<string>> StorageAccessWithHttpMessagesAsync(System.Guid subscriptionId, string documentName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> StorageAccessWithHttpMessagesAsync(System.Guid subscriptionId, string documentName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates the upload data to db
@@ -137,7 +137,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<CitizenDocumentFileAccessPageData>> GetFileAccessPageDataWithHttpMessagesAsync(System.Guid documentId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetFileAccessPageDataWithHttpMessagesAsync(System.Guid documentId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Upload's citizen/company document for companies
@@ -209,7 +209,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<DocumentFileAccessPageData>> GetCompanyFileAccessPageDataWithHttpMessagesAsync(System.Guid documentId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetCompanyFileAccessPageDataWithHttpMessagesAsync(System.Guid documentId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Create provider config to send citizen/company document
@@ -237,7 +237,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<DocumentConfigResponse>>> LoadProviderConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> LoadProviderConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Edit citizen document configuration settings.
@@ -268,7 +268,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<LoadDocumentResponse>>> GetFileAccessListByCPrWithHttpMessagesAsync(string cpr, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetFileAccessListByCPrWithHttpMessagesAsync(string cpr, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Loads all uploaded documents based on cvr number
@@ -281,7 +281,7 @@ namespace Kmd.Logic.DocumentService.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<IList<LoadDocumentResponse>>> GetFileAccessListByCvrWithHttpMessagesAsync(string cvr, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> GetFileAccessListByCvrWithHttpMessagesAsync(string cvr, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -1,4 +1,4 @@
-﻿{
+{
   "swagger": "2.0",
   "info": {
     "version": "1.1.2",
@@ -43,7 +43,9 @@
             "name": "retentionPeriodInDays",
             "in": "formData",
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "maximum": 999,
+            "minimum": 0
           },
           {
             "name": "documentType",
@@ -63,7 +65,8 @@
           {
             "name": "documentName",
             "in": "formData",
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_']+$"
           }
         ],
         "responses": {
@@ -143,10 +146,16 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "401": {
-            "description": "The request is not authorized"
+            "description": "The request is not authorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -193,10 +202,16 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "401": {
-            "description": "The request is not authorized"
+            "description": "The request is not authorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -358,10 +373,16 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "404": {
-            "description": "Document is not found"
+            "description": "Document is not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -435,7 +456,8 @@
           {
             "name": "documentName",
             "in": "formData",
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_']+$"
           },
           {
             "name": "sender",
@@ -633,10 +655,16 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "404": {
-            "description": "Document is not found"
+            "description": "Document is not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -753,13 +781,22 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "401": {
-            "description": "The request is not authorized"
+            "description": "The request is not authorized",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "404": {
-            "description": "Configuration is not found"
+            "description": "Configuration is not found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -889,10 +926,16 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "404": {
-            "description": "Not Found"
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -933,10 +976,16 @@
             }
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           },
           "404": {
-            "description": "Not Found"
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
           }
         },
         "security": [
@@ -1018,6 +1067,33 @@
         }
       }
     },
+    "ProblemDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "extensions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        }
+      }
+    },
     "CitizenDocumentUpdateRequest": {
       "type": "object",
       "properties": {
@@ -1071,6 +1147,7 @@
           "type": "string"
         },
         "documentName": {
+          "pattern": "^[a-zA-Z0-9-_']+$",
           "type": "string"
         }
       }
@@ -1188,7 +1265,7 @@
           "type": "string"
         },
         "documentName": {
-          "pattern": "^[a-zA-Z0-9]+$",
+          "pattern": "^[a-zA-Z0-9-_']+$",
           "type": "string"
         },
         "sender": {

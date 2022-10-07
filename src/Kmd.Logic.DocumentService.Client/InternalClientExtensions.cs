@@ -88,7 +88,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='request'>
             /// </param>
-            public static SendCitizenDocumentResponse SendDocument(this IInternalClient operations, System.Guid subscriptionId, SendCitizenDocumentRequest request)
+            public static object SendDocument(this IInternalClient operations, System.Guid subscriptionId, SendCitizenDocumentRequest request)
             {
                 return operations.SendDocumentAsync(subscriptionId, request).GetAwaiter().GetResult();
             }
@@ -106,7 +106,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SendCitizenDocumentResponse> SendDocumentAsync(this IInternalClient operations, System.Guid subscriptionId, SendCitizenDocumentRequest request, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> SendDocumentAsync(this IInternalClient operations, System.Guid subscriptionId, SendCitizenDocumentRequest request, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.SendDocumentWithHttpMessagesAsync(subscriptionId, request, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -124,7 +124,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='documentName'>
             /// </param>
-            public static string StorageAccess(this IInternalClient operations, System.Guid subscriptionId, string documentName)
+            public static object StorageAccess(this IInternalClient operations, System.Guid subscriptionId, string documentName)
             {
                 return operations.StorageAccessAsync(subscriptionId, documentName).GetAwaiter().GetResult();
             }
@@ -142,7 +142,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> StorageAccessAsync(this IInternalClient operations, System.Guid subscriptionId, string documentName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> StorageAccessAsync(this IInternalClient operations, System.Guid subscriptionId, string documentName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.StorageAccessWithHttpMessagesAsync(subscriptionId, documentName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -226,7 +226,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='documentId'>
             /// </param>
-            public static CitizenDocumentFileAccessPageData GetFileAccessPageData(this IInternalClient operations, System.Guid documentId)
+            public static object GetFileAccessPageData(this IInternalClient operations, System.Guid documentId)
             {
                 return operations.GetFileAccessPageDataAsync(documentId).GetAwaiter().GetResult();
             }
@@ -242,7 +242,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<CitizenDocumentFileAccessPageData> GetFileAccessPageDataAsync(this IInternalClient operations, System.Guid documentId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetFileAccessPageDataAsync(this IInternalClient operations, System.Guid documentId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetFileAccessPageDataWithHttpMessagesAsync(documentId, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -394,7 +394,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='documentId'>
             /// </param>
-            public static DocumentFileAccessPageData GetCompanyFileAccessPageData(this IInternalClient operations, System.Guid documentId)
+            public static object GetCompanyFileAccessPageData(this IInternalClient operations, System.Guid documentId)
             {
                 return operations.GetCompanyFileAccessPageDataAsync(documentId).GetAwaiter().GetResult();
             }
@@ -410,7 +410,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<DocumentFileAccessPageData> GetCompanyFileAccessPageDataAsync(this IInternalClient operations, System.Guid documentId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetCompanyFileAccessPageDataAsync(this IInternalClient operations, System.Guid documentId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCompanyFileAccessPageDataWithHttpMessagesAsync(documentId, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -462,7 +462,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='subscriptionId'>
             /// </param>
-            public static IList<DocumentConfigResponse> LoadProviderConfiguration(this IInternalClient operations, System.Guid subscriptionId)
+            public static object LoadProviderConfiguration(this IInternalClient operations, System.Guid subscriptionId)
             {
                 return operations.LoadProviderConfigurationAsync(subscriptionId).GetAwaiter().GetResult();
             }
@@ -478,7 +478,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<DocumentConfigResponse>> LoadProviderConfigurationAsync(this IInternalClient operations, System.Guid subscriptionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> LoadProviderConfigurationAsync(this IInternalClient operations, System.Guid subscriptionId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.LoadProviderConfigurationWithHttpMessagesAsync(subscriptionId, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -536,7 +536,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='cpr'>
             /// </param>
-            public static IList<LoadDocumentResponse> GetFileAccessListByCPr(this IInternalClient operations, string cpr)
+            public static object GetFileAccessListByCPr(this IInternalClient operations, string cpr)
             {
                 return operations.GetFileAccessListByCPrAsync(cpr).GetAwaiter().GetResult();
             }
@@ -552,7 +552,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<LoadDocumentResponse>> GetFileAccessListByCPrAsync(this IInternalClient operations, string cpr, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetFileAccessListByCPrAsync(this IInternalClient operations, string cpr, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetFileAccessListByCPrWithHttpMessagesAsync(cpr, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -568,7 +568,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// </param>
             /// <param name='cvr'>
             /// </param>
-            public static IList<LoadDocumentResponse> GetFileAccessListByCvr(this IInternalClient operations, string cvr)
+            public static object GetFileAccessListByCvr(this IInternalClient operations, string cvr)
             {
                 return operations.GetFileAccessListByCvrAsync(cvr).GetAwaiter().GetResult();
             }
@@ -584,7 +584,7 @@ namespace Kmd.Logic.DocumentService.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<LoadDocumentResponse>> GetFileAccessListByCvrAsync(this IInternalClient operations, string cvr, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> GetFileAccessListByCvrAsync(this IInternalClient operations, string cvr, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetFileAccessListByCvrWithHttpMessagesAsync(cvr, null, cancellationToken).ConfigureAwait(false))
                 {

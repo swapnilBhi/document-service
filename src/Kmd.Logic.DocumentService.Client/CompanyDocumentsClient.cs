@@ -148,7 +148,7 @@ namespace Kmd.Logic.DocumentService.Client
                 throw new UnauthorizedAccessException("You don't have permission to upload");
             }
 
-            var sasTokenUri = new Uri(responseSasUri.Body);
+            var sasTokenUri = new Uri(responseSasUri.Body.ToString());
 
             var containerAddress =
                 new Uri($"{sasTokenUri.Scheme}://{sasTokenUri.Host}/{sasTokenUri.AbsolutePath.Split('/')[1]}");
