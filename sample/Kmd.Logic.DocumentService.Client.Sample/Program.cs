@@ -144,7 +144,7 @@ namespace Kmd.Logic.DocumentService.Client.Sample
 
             Log.Information($"The {configuration.CompanyDocumentType} document with id {updateCompanyDocument.DocumentId} and file access page url {updateCompanyDocument.FileAccessPageUrl} is uploaded successfully", uploadWithLargeSizeDocument.DocumentType, uploadWithLargeSizeDocument.DocumentId, uploadWithLargeSizeDocument.FileAccessPageUrl);
 
-            return "The citizen document was uploaded successfully";
+            return "The citizen document was uploaded successfully. .";
         }
     }
 }
